@@ -1,0 +1,37 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    int n;
+    static int a[];
+    Solution(int n)
+    {
+        this.n=n;
+        a=new int [n];
+    }
+    int[] fun(int k)
+    {
+        while(k-->0)
+        {
+        int t=a[n-1];
+        
+            for(int i=n-2;i>=0;i--)
+                a[i+1]=a[i];
+            
+        a[0]=t;
+        }
+        return a;    
+    }
+
+    public static void main(String[] args) {
+        Scanner z=new Scanner(System.in);
+        int n=z.nextInt();
+        Solution o=new Solution(n);
+        for(int i=0;i<n;i++)
+            a[i]=z.nextInt();
+        int k=z.nextInt();
+        a=o.fun(k); 
+        for(int i=0;i<n;i++)
+            System.out.print(a[i]+" ");
+    }
+}
